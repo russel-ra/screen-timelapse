@@ -105,7 +105,7 @@ def convert(video_fps=2):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="record a timelapse of your screen")
     parser.add_argument("-c", "--convert", help="convert screenshots to a timelapse" ,action="store_true")
-    parser.add_argument("-d", "--delay", help="modify the delay between screenshots. default is 10", type=int, default=10)
+    parser.add_argument("-d", "--delay", help="modify the delay between screenshots. default is 10", type=int, default=10, metavar="SECONDS")
     parser.add_argument("--fps", help="modify the frames per second of the timelapse. default is 2", type=int, default=2)
 
     args = parser.parse_args()
