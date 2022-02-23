@@ -1,12 +1,12 @@
 # screen-timelapse
-A simple python script that takes a screenshot every X seconds and then converts those screenshots to a timelapse.
+A simple python script that takes a screenshot every X seconds and then converts those screenshots into a timelapse.
 
 ## Getting started 
-Create a new environment if you want to and install the required modules by running 
+Install the required packages by running 
 
 `pip install -r requirements.txt`
 
-Then activate your environment if you've decided to create one and simply run
+Then simply start the script by running
 
 `python3 screen_timelapse.py`
 
