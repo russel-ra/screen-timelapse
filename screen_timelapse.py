@@ -62,20 +62,30 @@ def convert(video_fps=2):
    
     filename = datetime.today().strftime("%d-%m-%Y") + ".mp4" # set filename to current date
 
-    if os.path.exists(filename): # if filename exists, give option to create a new file or override exisiting
-        while True:
-            print("Timelapse with the same filename already exists.")
-            n = input("Type 1 to override or type 2 to create a new file...").strip()
-            if n != "1" and n != "2":
-                print("Invalid option!")
-                continue 
+    option_shown = False
+    copy_num = 1
 
-            if n == "1":
-                break
+    while True:
+        if os.path.exists(filename): # if filename exists, give option to create a new file or override exisiting
+            if not option_shown:
+                print("Timelapse with the same filename already exists.")
+                n = input("Type 1 to override or type 2 to create a new file...").strip()
+                if n != "1" and n != "2":
+                    print("Invalid option!")
+                    continue 
 
-            elif n == "2":
-                filename = filename[:-4] + "-copy" + ".mp4"
-                break 
+                if n == "1":
+                    break
+
+                elif n == "2":
+                    filename = filename[:-4] + "({})".format(copy_num) + ".mp4" 
+                    option_shown = True
+                    copy_num += 1
+            else:
+                filename = filename[:-7] + "({})".format(copy_num) + ".mp4"
+                copy_num += 1
+        else:
+            break
 
     print("Please wait while screenshots are being converted to video...")
 
